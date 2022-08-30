@@ -1,0 +1,4 @@
+{ "name": "Coffee", "price": "$1.00" } 
+{ "name": "Tea", "price": "$2.00" } 
+{ "name": "Coke", "price": "$3.00" } 
+{ "name": "Water", "price": "$4.00" }

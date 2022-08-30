@@ -1,0 +1,25 @@
+input:
+  label: ""
+  file:
+    paths: [./input/*]
+    codec: lines
+    max_buffer: 1000000
+    delete_on_finish: false
+pipeline:
+  processors:  
+    - bloblang: |
+        root.name = this.name.uppercase()
+        root.price = this.price
+output:
+  broker:
+    pattern: fan_out
+    outputs:
+    - file:
+        path: "result/file1.log"
+        codec: lines
+    - file:
+        path: "result/file2.log"
+        codec: lines
+      processors:
+        - bloblang: |
+            root.name = this.name.lowercase()
